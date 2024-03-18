@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "sanity";
+
 interface Base {
   _id: string;
   _rev: string;
@@ -22,5 +24,6 @@ export interface Product extends Base {
   slug: string;
   image: string;
   price: string;
+  content: PortableTextBlock[];
   tags: string[];
 }

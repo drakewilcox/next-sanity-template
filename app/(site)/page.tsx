@@ -7,16 +7,14 @@ import styles from "./page.module.css";
 export default async function Home() {
   const products = await getProducts();
 
-  console.log(products[0]);
-
   return (
-    <div>
+    <div className={styles.pageContainer}>
       <div className={styles.grid}>
         {products.map((product) => (
           <div className={styles.item} key={product._id}>
             <Link
               className={styles.link}
-              href={`/projects/${product.slug}`}
+              href={`/products/${product.slug}`}
               key={product._id}
             >
               {product.image && (

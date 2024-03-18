@@ -16,3 +16,18 @@ export async function getProducts(): Promise<Product[]> {
     }`
   );
 }
+
+export async function getProduct(slug: string): Promise<Product> {
+  return client.fetch(
+    groq`*[_type == "product" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      productName,
+      "slug": slug.current,
+      "image": image.asset->url,
+      price,
+      content
+    }`,
+    { slug }
+  );
+}

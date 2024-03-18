@@ -22,9 +22,6 @@ body {
   color: var(--text-color);
   background: var(--background-color);
   font-family: var(--font-book);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 20px;
 }
 

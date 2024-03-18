@@ -1,4 +1,34 @@
 :root {
+  --red: #cf1d2b;
+  --navy-dark: #0c1a28;
+  --white: #ffffff;
+  --black: #000000;
+  --gray-lighter: #f8f7f6;
+  --gray-light: #ebe8e5;
+  --gray-text: #9ea3a8;
+  --gray-middle: #4d4d4a;
+  --yellow: #ffbd00;
+  --opacity-md: 0.6;
+
+  --a11y-border-color: var(--red);
+  --a11y-shadow-color: rgba(207, 29, 43, 0.22);
+
+  /* Color Usage */
+  --text-color: var(--black);
+  --background-color: var(--white);
+}
+
+body {
+  color: var(--text-color);
+  background: var(--background-color);
+  font-family: var(--font-book);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
@@ -104,4 +134,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */

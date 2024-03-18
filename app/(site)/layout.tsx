@@ -13,7 +13,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="">
+      <body>
         <header className=""></header>
         <main className="">{children}</main>
       </body>

@@ -7,7 +7,7 @@ export async function getProducts(): Promise<Product[]> {
     groq`*[_type == "product"]{
       _id,
       _createdAt,
-      name,
+      productName,
       "slug": slug.current,
       "image": image.asset->url,
       price,

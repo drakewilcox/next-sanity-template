@@ -1,4 +1,4 @@
-import { getProducts } from "@/sanity/sanity-utils";
+import { getProducts } from "@/sanity/data";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";

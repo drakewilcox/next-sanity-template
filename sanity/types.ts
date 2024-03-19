@@ -6,19 +6,6 @@ interface Base {
   _type: string;
   _createdAt: string;
 }
-
-// export interface Reference {
-//   _ref: string;
-//   _type: "reference";
-// }
-// export interface Image {
-//   _type: string;
-//   asset: Reference & {
-//     metadata: {
-//       lqip: string;
-//     };
-//   };
-// }
 export interface Product extends Base {
   productName: string;
   slug: string;

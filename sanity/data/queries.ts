@@ -25,7 +25,22 @@ export const getMenu = groq`*[_type == "menu"]{
     page->{
       _id, 
       title, 
-      slug
+      "slug": slug.current,
     }
   }
+}`;
+
+export const pages = groq`*[_type == "page"]{
+  _id,
+  _createdAt,
+  title,
+  "slug": slug.current
+}`;
+
+export const page = groq`*[_type == "page" && slug.current == $slug][0]{
+  _id,
+  _createdAt,
+  title,
+  "slug": slug.current,
+  content
 }`;

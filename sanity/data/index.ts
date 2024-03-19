@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "../lib/client";
-import { Product } from "../types";
+import { Product, Page, Menu } from "../types";
 import * as queries from "./queries";
 
 export async function getProducts(): Promise<Product[]> {
@@ -11,6 +11,14 @@ export async function getProduct(slug: string): Promise<Product> {
   return client.fetch(queries.getProduct, { slug });
 }
 
-export async function getMenu(): Promise<Product> {
+export async function getMenu(): Promise<Menu> {
   return client.fetch(queries.getMenu);
+}
+
+export async function getPages(): Promise<Page[]> {
+  return client.fetch(queries.pages);
+}
+
+export async function getPage(slug: string): Promise<Page> {
+  return client.fetch(queries.page, { slug });
 }

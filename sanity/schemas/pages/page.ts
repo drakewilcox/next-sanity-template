@@ -23,6 +23,11 @@ const page = {
       type: "array",
       of: [{ type: "block" }],
     },
+    {
+      name: "modules",
+      type: "array",
+      of: [{ type: "hero" }],
+    },
   ],
 };
 

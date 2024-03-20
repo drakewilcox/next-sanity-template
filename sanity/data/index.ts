@@ -1,4 +1,3 @@
-import { groq } from "next-sanity";
 import { client } from "../lib/client";
 import { Product, Page, MenuDocument } from "../types";
 import * as queries from "./queries";

@@ -28,7 +28,7 @@ export type NavLink = {
   page: Page;
 };
 
-export type Menu = {
+export type MenuDocument = {
   _id: string;
   title: string;
   slug: string;

@@ -1,14 +1,16 @@
+@import "settings/settings";
+
 .nav {
   position: fixed;
-  background-color: white;
+  background-color: $color-primary-white;
   z-index: 300;
   width: 100%;
   left: 0;
 }
 
 .wrapper {
-  margin: 0px 8px;
-  border: 2px solid black;
+  margin: 0px $layout-margin;
+  border: $border-standard;
   display: flex;
   flex-direction: row-reverse;
 
@@ -26,8 +28,8 @@
 
 .navLink {
   display: block;
-  padding: 10px 10px;
-  border-left: 2px solid black;
+  padding: 8px 8px;
+  border-left: $border-standard;
   text-transform: uppercase;
   float: right;
   font-weight: 400;

@@ -1,3 +1,5 @@
+import path from "path";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,6 +10,9 @@ const nextConfig = {
         port: "",
       },
     ],
+  },
+  sassOptions: {
+    includePaths: [path.join(process.cwd(), "styles")],
   },
 };
 

@@ -18,7 +18,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header menuData={menuData[0]} />
+        <Header menuData={menuData} />
         <main className="">{children}</main>
       </body>
     </html>

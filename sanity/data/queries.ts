@@ -16,7 +16,7 @@ export const getProducts = groq`*[_type == "product"]${product}`;
 
 export const getProduct = groq`*[_type == "product" && slug.current == $slug][0]${product}`;
 
-export const getMenu = groq`*[_type == "menu"]{
+export const getMenu = groq`*[_type == "menu" && _id == "mainMenu"][0]{
   _id,
   title, 
   slug, 
@@ -25,7 +25,7 @@ export const getMenu = groq`*[_type == "menu"]{
     page->{
       _id, 
       title, 
-      "slug": slug.current,
+      slug
     }
   }
 }`;

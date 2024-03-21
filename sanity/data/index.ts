@@ -1,23 +1,43 @@
 import { client } from "../lib/client";
-import { Product, Page, MenuDocument } from "../types";
+import {
+  Product,
+  Page,
+  MenuDocument,
+  SanityHomePage,
+  SanityCollectionPage,
+  SanityCollection,
+} from "../types";
 import * as queries from "./queries";
+import { HOME_PAGE_QUERY } from "../queries/sanity/home";
+import { COLLECTION_PAGE_QUERY } from "../queries/sanity/collection";
+import { COLLECTION_QUERY } from "../queries/shopify/collection";
 
 export async function getProducts(): Promise<Product[]> {
-  return client.fetch(queries.getProducts);
+  return client.fetch(queries.getProducts, { next: { revalidate: 10 } });
 }
 
 export async function getProduct(slug: string): Promise<Product> {
-  return client.fetch(queries.getProduct, { slug });
+  return client.fetch(queries.getProduct, { slug, next: { revalidate: 10 } });
 }
 
 export async function getMenu(): Promise<MenuDocument> {
-  return client.fetch(queries.getMenu);
+  return client.fetch(queries.getMenu, { next: { revalidate: 10 } });
 }
 
 export async function getPages(): Promise<Page[]> {
-  return client.fetch(queries.pages);
+  return client.fetch(queries.pages, { next: { revalidate: 10 } });
 }
 
 export async function getPage(slug: string): Promise<Page> {
-  return client.fetch(queries.page, { slug });
+  return client.fetch(queries.page, { slug, next: { revalidate: 10 } });
+}
+
+export async function getHomepage(): Promise<SanityHomePage> {
+  return client.fetch(HOME_PAGE_QUERY, { next: { revalidate: 10 } });
+}
+
+export async function getCollection(
+  slug: string
+): Promise<SanityCollectionPage> {
+  return client.fetch(COLLECTION_PAGE_QUERY, { slug });
 }

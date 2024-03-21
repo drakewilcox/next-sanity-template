@@ -16,6 +16,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "data"],
   "exclude": ["node_modules", "dist"]
 }

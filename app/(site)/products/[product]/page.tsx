@@ -1,4 +1,4 @@
-import { getProduct } from "@/sanity/data";
+import { getProduct } from "@/app/data";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";

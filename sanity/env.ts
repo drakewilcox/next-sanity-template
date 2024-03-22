@@ -38,7 +38,8 @@ export const SHOPIFY_DOCUMENT_TYPES = [
   "collection",
 ];
 export const PAGE_REFERENCES = [
-  { type: "collection" },
+  // { type: "collection" },
+  { type: "store" },
   { type: "home" },
   { type: "page" },
   { type: "product" },

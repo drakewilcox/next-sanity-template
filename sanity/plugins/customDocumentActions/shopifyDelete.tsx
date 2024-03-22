@@ -80,7 +80,7 @@ const ShopifyDelete = (
         try {
           await transaction.commit();
           // Navigate back to products root
-          router.navigateUrl({ path: "/structure/products" });
+          router.navigateUrl({ path: "admin/structure/products" });
         } catch (err) {
           let message = "Unknown Error";
           if (err instanceof Error) message = err.message;

@@ -1,5 +1,6 @@
-import { getCollection, getHomepage, getProducts } from "@/sanity/data";
+import { getHomepage, getProducts } from "@/sanity/data";
 import { urlForImage } from "@/sanity/lib/image";
+import { getCollectionProducts, getCollection } from "@/lib/shopify";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -7,9 +8,9 @@ import styles from "./page.module.css";
 export default async function Home() {
   const products = await getProducts();
   const homepage = await getHomepage();
-  const collection = await getCollection("all");
 
-  console.log(collection);
+  const collection = await getCollectionProducts({ collection: "all" });
+  // console.log(collection);
 
   return (
     <div className={styles.pageContainer}>

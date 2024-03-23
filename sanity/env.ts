@@ -18,7 +18,7 @@ export const projectId = assertValue(
 
 export const SHOPIFY_STORE_ID = "dreamweapon-audio.myshopify.com";
 
-export const useCdn = false;
+export const useCdn = true;
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {

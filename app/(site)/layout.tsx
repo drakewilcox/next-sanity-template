@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-// import { getMenu } from "@/app/data";
+import { getLayout } from "@/lib/sanity";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 
@@ -13,12 +13,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const menuData = await getMenu();
-  // console.log(menuData);
+  const layout = await getLayout();
+  console.log(layout.menuLinks);
   return (
     <html lang="en">
       <body>
-        {/* <Header menuData={menuData} /> */}
+        <Header menuLinks={layout.menuLinks} />
         <main className="">{children}</main>
       </body>
     </html>

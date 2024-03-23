@@ -1,4 +1,4 @@
-import groq from 'groq';
+import groq from "groq";
 
 export const LINK_INTERNAL = groq`
   _key,
@@ -11,6 +11,9 @@ export const LINK_INTERNAL = groq`
     },
     (_type == "home") => {
       "slug": "/",
+    },
+    (_type == "store") => {
+      "slug": "/store",
     },
     (_type == "page") => {
       "slug": "/pages/" + slug.current,

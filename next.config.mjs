@@ -9,6 +9,12 @@ const nextConfig = {
         hostname: "cdn.sanity.io",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/s/files/**",
+        port: "",
+      },
     ],
   },
   sassOptions: {

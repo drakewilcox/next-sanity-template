@@ -1,6 +1,8 @@
 import { BasketIcon } from "@sanity/icons";
 import { defineField } from "sanity";
 
+import { validateSlug } from "../../utils/validateSlug";
+
 const TITLE = "Store";
 
 export default defineField({
@@ -20,6 +22,20 @@ export default defineField({
     },
   ],
   fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    // Slug
+    defineField({
+      name: "slug",
+      type: "slug",
+      options: { source: "title" },
+      // @ts-ignore - TODO - fix this TS error
+      validation: validateSlug,
+    }),
     // Hero
     defineField({
       name: "hero",

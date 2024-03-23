@@ -1,4 +1,4 @@
-import { getProduct } from "@/app/data";
+// import { getProduct } from "@/app/data";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
@@ -11,11 +11,11 @@ type Props = {
 
 export default async function Product({ params }: Props) {
   const slug = params.product;
-  const product = await getProduct(slug);
+  // const product = await getProduct(slug);
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.grid}>
+      {/* <div className={styles.grid}>
         <header className={styles.navHeader}>
           <div>{product.productName}</div>
         </header>
@@ -39,7 +39,7 @@ export default async function Product({ params }: Props) {
       </div>
       <div className={styles.moreSection}>
         <header className={styles.navHeader}>Similar Items</header>
-      </div>
+      </div> */}
     </div>
   );
 }

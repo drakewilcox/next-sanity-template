@@ -84,12 +84,6 @@ export async function shopifyFetch<T>({
   tags?: string[];
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: ShopifyResponseData<T> }> {
-  console.log("KEY:", key);
-  console.log("ENDPOINT:", endpoint);
-  console.log("BODY", {
-    ...(query && { query }),
-    ...(variables && { variables }),
-  });
   try {
     const result = await fetch(endpoint, {
       method: "POST",

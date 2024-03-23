@@ -1,16 +1,6 @@
 import { client } from "../lib/client";
-import {
-  Product,
-  Page,
-  MenuDocument,
-  SanityHomePage,
-  SanityCollectionPage,
-  SanityCollection,
-} from "../types";
+import { Product, Page, MenuDocument } from "@/lib/sanity/types";
 import * as queries from "./queries";
-import { HOME_PAGE_QUERY } from "../queries/sanity/home";
-import { COLLECTION_PAGE_QUERY } from "../queries/sanity/collection";
-import { COLLECTION_QUERY } from "../queries/shopify/collection";
 
 export async function getProducts(): Promise<Product[]> {
   return client.fetch(queries.getProducts, { next: { revalidate: 10 } });
@@ -32,12 +22,12 @@ export async function getPage(slug: string): Promise<Page> {
   return client.fetch(queries.page, { slug, next: { revalidate: 10 } });
 }
 
-export async function getHomepage(): Promise<SanityHomePage> {
-  return client.fetch(HOME_PAGE_QUERY, { next: { revalidate: 10 } });
-}
+// export async function getHomepage(): Promise<SanityHomePage> {
+//   return client.fetch(HOME_PAGE_QUERY, { next: { revalidate: 10 } });
+// }
 
-export async function getCollection(
-  slug: string
-): Promise<SanityCollectionPage> {
-  return client.fetch(COLLECTION_PAGE_QUERY, { slug });
-}
+// export async function getCollection(
+//   slug: string
+// ): Promise<SanityCollectionPage> {
+//   return client.fetch(COLLECTION_PAGE_QUERY, { slug });
+// }

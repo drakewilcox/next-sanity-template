@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Lexend_Deca } from "next/font/google";
 import "@/styles/globals.css";
 
-const lexend = Lexend({ subsets: ["latin"] });
+const lexend = Lexend_Deca({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",

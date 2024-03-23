@@ -1,41 +1,36 @@
-import { getHomepage, getProducts } from "@/sanity/data";
 import { urlForImage } from "@/sanity/lib/image";
-import { getCollectionProducts, getCollection } from "@/lib/shopify";
+import { getCollectionProducts } from "@/lib/shopify";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
 export default async function Home() {
-  const products = await getProducts();
-  const homepage = await getHomepage();
-
-  const collection = await getCollectionProducts({ collection: "all" });
-  // console.log(collection);
+  const collectionProducts = await getCollectionProducts({ collection: "all" });
+  console.log(collectionProducts[0].featuredImage.url);
 
   return (
     <div className={styles.pageContainer}>
       <div className={styles.grid}>
-        {products.map((product) => (
-          <div className={styles.item} key={product._id}>
-            <Link
-              className={styles.link}
-              href={`/products/${product.slug}`}
-              key={product._id}
-            >
-              {product.image && (
-                <Image
-                  src={urlForImage(product.image)
-                    .size(600, 600)
-                    .dpr(2)
-                    .quality(80)
-                    .url()}
-                  alt={product.productName}
-                  width={600}
-                  height={600}
-                  className={styles.image}
-                />
+        {collectionProducts.map((product) => (
+          <div className={styles.item} key={product.id}>
+            <Link className={styles.link} href={`/products/${product.handle}`}>
+              {product.featuredImage.url && (
+                <div className={styles.imageContainer}>
+                  <Image
+                    // src={urlForImage(product.featuredImage.url)
+                    //   .size(600, 600)
+                    //   .dpr(2)
+                    //   .quality(80)
+                    //   .url()}
+                    src={product.featuredImage.url}
+                    alt={product.title}
+                    width={product.featuredImage.width}
+                    height={product.featuredImage.height}
+                    className={styles.image}
+                  />
+                </div>
               )}
-              <div className={styles.textContainer}>{product.productName}</div>
+              <div className={styles.textContainer}>{product.title}</div>
             </Link>
           </div>
         ))}

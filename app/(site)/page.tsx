@@ -1,5 +1,5 @@
 import { urlForImage } from "@/sanity/lib/image";
-import { Image } from "@shopify/hydrogen";
+import { Image, Money } from "@shopify/hydrogen";
 import { getCollectionProducts } from "@/lib/shopify";
 // import Image from "next/image";
 import Link from "next/link";
@@ -18,9 +18,12 @@ export default async function Home() {
       <div className={styles.grid}>
         {collectionProducts.map((product) => (
           <div className={styles.item} key={product.id}>
-            <Link className={styles.link} href={`/products/${product.handle}`}>
-              {product.featuredImage.url && (
-                <div className={styles.imageContainer}>
+            <div className={styles.imageContainer}>
+              <Link
+                className={styles.link}
+                href={`/products/${product.handle}`}
+              >
+                {product.featuredImage.url && (
                   <Image
                     className={styles.image}
                     data={product.featuredImage}
@@ -30,25 +33,15 @@ export default async function Home() {
                     height={1000}
                     alt={product.featuredImage.altText}
                   />
-                  {/* <Image
-                    // src={urlForImage(product.featuredImage.url)
-                    //   .size(600, 600)
-                    //   .dpr(2)
-                    //   .quality(80)
-                    //   .url()}
-                    src={product.featuredImage.url}
-                    alt={product.title}
-                    width={product.featuredImage.width}
-                    height={product.featuredImage.height}
-                    className={styles.image}
-                  /> */}
-                </div>
-              )}
-              <div className={styles.textContainer}>
-                <div>{product.title}</div>
-                <div>{product.priceRange.minVariantPrice.amount}</div>
+                )}
+              </Link>
+              <div className={styles.badge}>
+                {product.priceRange.minVariantPrice.amount}
               </div>
-            </Link>
+            </div>
+            <div className={styles.textContainer}>
+              <div>{product.title}</div>
+            </div>
           </div>
         ))}
       </div>

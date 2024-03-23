@@ -2,6 +2,7 @@ import { client } from "@/sanity/lib/client";
 import { type QueryParams } from "next-sanity";
 
 import { LAYOUT_QUERY } from "./queries/layout";
+import { COLLECTION_PAGE_QUERY } from "./queries/collection";
 import {
   Product,
   Page,
@@ -34,9 +35,20 @@ export async function getLayout(): Promise<SanityLayout> {
     query: LAYOUT_QUERY,
     tags: ["menuLinks"],
   });
-  // return client.fetch<SanityLayout>(
-  //   LAYOUT_QUERY,
-  //   {},
-  //   { next: { revalidate: 15 } }
-  // );
 }
+
+export async function getSanityCollection(
+  collection: string
+): Promise<SanityCollectionPage> {
+  return await sanityFetch<any>({
+    query: COLLECTION_PAGE_QUERY,
+    params: { slug: collection },
+    tags: [""],
+  });
+}
+
+// return client.fetch<SanityLayout>(
+//   LAYOUT_QUERY,
+//   {},
+//   { next: { revalidate: 15 } }
+// );

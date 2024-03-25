@@ -13,6 +13,14 @@ export default async function Home() {
 
   console.log(collectionPage);
 
+  const formatPrice = (price: any) => {
+    return Intl.NumberFormat(undefined, {
+      currency: price.currencyCode,
+      minimumFractionDigits: 2,
+      style: "currency",
+    }).format(price.amount);
+  };
+
   return (
     <div className={styles.pageContainer}>
       <div className={styles.grid}>
@@ -36,7 +44,7 @@ export default async function Home() {
                 )}
               </Link>
               <div className={styles.badge}>
-                {product.priceRange.minVariantPrice.amount}
+                {formatPrice(product.priceRange.minVariantPrice)}
               </div>
             </div>
             <div className={styles.textContainer}>

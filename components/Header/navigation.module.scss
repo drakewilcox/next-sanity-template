@@ -12,7 +12,10 @@
   margin: 0px $layout-margin;
   border: $border-standard;
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: space-between;
+  height: 100%;
+
+  // flex-direction: row-reverse;
 
   &::before {
     content: "";
@@ -26,13 +29,41 @@
   }
 }
 
-.navLink {
-  display: block;
+.groupLeft {
+  display: flex;
+  align-items: center;
+}
+
+.homeText {
+  padding: 8px;
+  font-weight: 600;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-right: 2px solid black;
+}
+
+.linkIcon {
+  padding: 8px;
+}
+
+.groupRight {
+  display: flex;
+}
+.linkContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   padding: 8px 8px;
   border-left: $border-standard;
-  text-transform: uppercase;
-  float: right;
-  font-weight: 400;
-  color: black;
-  text-decoration: none;
+
+  .link {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+  }
 }

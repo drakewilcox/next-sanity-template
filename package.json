@@ -21,6 +21,7 @@
     "next-sanity": "^7.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.0.1",
     "sanity": "^3.34.0",
     "sanity-plugin-hotspot-array": "^1.0.1",
     "sanity-plugin-media": "^2.2.5",
